@@ -1,20 +1,4 @@
-main()
-{
-    int a, b, c;
-    if (a < b)
-    {
-        a = a + b;
-    }
-    while (a < b)
-    {
-        a = a + b;
-    }
-    if (a <= b)
-    {
-        c = a - b;
-    }
-    else
-    {
-        c = a + b;
-    }
+for (i=0; i < 100 ; i++) {
+    temp = i + 10;
+    a = b + c;
 }

@@ -286,8 +286,8 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 #define YY_END_OF_BUFFER 4
 static yyconst short int yy_accept[19] =
     {   0,
-        2,    2,    4,    2,    3,    2,    2,    2,    2,    2,
-        2,    2,    1,    2,    2,    2,    2,    0
+        0,    0,    4,    2,    3,    2,    0,    0,    0,    0,
+        0,    0,    1,    0,    0,    0,    0,    0
     } ;
 
 static yyconst int yy_ec[256] =
@@ -607,12 +607,12 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 2 "pg1.l"
-printf("Not Accepted \n") ;
+{fprintf(yyout, "");}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 3 "pg1.l"
-printf("Accepted\n"); 
+{ fprintf(yyout, "%s", yytext); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
@@ -1507,5 +1507,18 @@ int main()
 #endif
 #line 4 "pg1.l"
 
-
+  
 int yywrap(){}
+  
+
+int main()
+{
+    extern FILE *yyin, *yyout;
+  
+    yyin = fopen("input.txt", "r");
+ 
+    yyout = fopen("output.txt", "w");
+  
+    yylex();
+    return 0;
+}

@@ -1,18 +1,57 @@
 %{
-int flag = 0;
+
+#include<stdio.h>
+
+#include<string.h>
+
+int i;
+
 %}
 
+
 %%
-.*Mala.*\n flag=1;
+[a-z A-Z]* {
+
+for(i=0;i<=yyleng;i++)
+
+{
+
+if((yytext[i]=='m')&&(yytext[i+1]=='a')&&(yytext[i+2]=='l')&&(yytext[i+3]=='a'))
+
+{
+
+printf("%s","Not Accepted");
+break;
+
+}
+
+if(i ==yyleng-1)
+{
+    printf("%s","Accepted");
+}
+
+}
+
+
+
+}
+
 %%
  
-int yywrap(void) {}
  
-main(){
-    yylex();
-     if (flag == 1) 
-    printf("Accepted"); 
- else
-    printf("Not Accepted"); 
-    return 0;
+
+main()
+
+{
+
+yylex();
+
+}
+
+int yywrap()
+
+{
+
+return 1;
+
 }

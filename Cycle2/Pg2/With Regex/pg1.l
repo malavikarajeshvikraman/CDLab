@@ -1,5 +1,5 @@
 %%
-.*mala.*\n {fprintf(yyout, "");}
+.*Mala.*\n {fprintf(yyout, "");}
 .       { fprintf(yyout, "%s", yytext); }
 %%
   
